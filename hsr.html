@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gov@SG HSR Booking</title>
+        <link rel="stylesheet" href="hsr.css"></link>
+        <script src="hsr.js"></script>
+        <script>
+            function show(shown, hidden) {
+            document.getElementById(shown).style.display='block';
+            document.getElementById(hidden).style.display='none';
+            return false;
+            }
+        </script>
+    </head>
+    <body class="container">
+        <div id="page1" class="page">
+            <h2>Gov@SG High Speed Rail Booking System</h2>
+
+            <div class="section">
+                <table id="slotsTable">
+                    <thead class="slotsText">
+                        <tr><th id="slotsAvail">Slots Available</th></tr>
+                    </thead>
+                    <tbody class="slotsText">
+                        <tr><td id="slotsDisplay"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section" id="bookingSection">
+                <div id="book" class="booking">
+                    <label for="bookField" class="bookLabel">Book Reservation</label>
+                    
+                    <div class="bookLabelFieldSegment">
+                        <label for="bookField" class="fieldLabel">Name (*)</label>
+                        <input type="text" class="form" id="bookFieldName">
+                    </div>
+
+                    <div class="bookLabelFieldSegment tooltip">
+                        <label for="bookField" class="fieldLabel">Phone Number (*)</label>
+                        <input type="text" class="form" id="bookFieldPhone">
+                        <span class="tooltiptext">8-digit Phone No. required.</span>
+                    </div>
+
+                    <input type="submit" class="submit" id="bookSubmit">
+                    <!--Modal-->
+                    <div class="modal" id="submitModal">
+                        <!--Modal Content-->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p class="responseText" id="submitResponse"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="delete" class="booking">
+                    <label for="deleteField" class="bookLabel">Delete Reservation</label>
+                    <label for="bookField" class="fieldLabel">Reservation No. (*)</label>
+                    <input type="text" class="form" id="deleteField">
+                    <input type="submit" class="submit" id="deleteSubmit">
+                    <!--Modal-->
+                    <div class="modal" id="deleteModal">
+                        <!--Modal Content-->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p class="responseText" id="deleteResponse"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" id="navBar">
+                <a id="displayRes" href="#" onclick="return show('page2','page1');">Display Reservations</a>
+            </div>
+        </div>
+
+        <div id="page2" style="display:none" class="page">
+            <h2>Gov@SG High Speed Rail Booking System</h2>
+
+            <div class="section" id="navBar2">
+                <a href="#" onclick="return show('page1','page2');">Home</a>
+            </div>            
+
+            <div class="section">
+                <div id="refresh" style="overflow-x: auto">
+                    <table id="bookingTable">
+                        <thead id="BookingTableHead"></thead>
+                        <tbody id="BookingTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
